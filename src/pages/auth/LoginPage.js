@@ -1,10 +1,10 @@
 import { useState } from "react"
-import { login } from "./service"
+import { login, logout } from "./service"
 
 
 function LoginPage() {
 
-    const [credentials, setCredentials] = useState({ username: '', password: '' })
+    const [credentials, setCredentials] = useState({ email: '', password: '' })
     const [isLogged, setIsLogged] = useState(false)
 
     const handleLogin = () => setIsLogged(true)
@@ -27,6 +27,10 @@ function LoginPage() {
         AuthValues.onLogin()
     }
 
+    const handleLogoutClicked = async () => {
+        await logout()
+    }
+
     const handleChange = event => {
         setCredentials( currentCredentials => ({
             ...currentCredentials,
@@ -41,7 +45,7 @@ function LoginPage() {
             <form onSubmit={ handleSubmit }>
                 <input 
                     type="text" 
-                    name="username" 
+                    name="email" 
                     onChange={ handleChange } 
                     value={ username } 
                 />
@@ -51,8 +55,9 @@ function LoginPage() {
                     onChange={ handleChange }
                     value={ password }
                 />
-                <button type="submit">Log in</button>
+                <button type="submit">Log in</button>   
             </form>
+            <button type="submit" onClick={handleLogoutClicked}>Logout</button>
         </div>
     )
 

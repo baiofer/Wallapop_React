@@ -10,13 +10,15 @@ function AdvertsPage() {
         const fetchAdverts = async () => {
             const adverts = await getAdverts()
             setAdverts(adverts)
-            console.log(adverts)
         }
         fetchAdverts()
     }, [])
+
+
     return (
         <div>
             Listado de anuncios
+            { console.log(adverts) }
         </div>
     )
 
