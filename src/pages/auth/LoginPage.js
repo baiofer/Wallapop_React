@@ -1,21 +1,12 @@
 import { useState } from "react"
 import { login, logout } from "./service"
+import { useAuth } from "./context"
 
 
 function LoginPage() {
 
     const [credentials, setCredentials] = useState({ email: '', password: '' })
-    const [isLogged, setIsLogged] = useState(false)
-
-    const handleLogin = () => setIsLogged(true)
-    const handleLogout = () => setIsLogged(false)
-
-    const AuthValues = {
-        isLogged,
-        onLogin: handleLogin,
-        onLogout: handleLogout
-    }
-
+    
     const handleSubmit = async event => {
         event.preventDefault()
         try {
@@ -23,13 +14,8 @@ function LoginPage() {
         } catch (error) {
             console.log(error)
         }
-        
-        AuthValues.onLogin()
     }
 
-    const handleLogoutClicked = async () => {
-        await logout()
-    }
 
     const handleChange = event => {
         setCredentials( currentCredentials => ({
@@ -39,6 +25,7 @@ function LoginPage() {
     }
 
     const { username, password } = credentials
+
     return (
         <div>
             <h1>Acceso a Wallapop</h1>
@@ -57,7 +44,6 @@ function LoginPage() {
                 />
                 <button type="submit">Log in</button>   
             </form>
-            <button type="submit" onClick={handleLogoutClicked}>Logout</button>
         </div>
     )
 
