@@ -1,0 +1,39 @@
+.authForm {
+    width: 600px;
+    height: 800px;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    border-radius: 25px;
+    padding: 20px;
+}
+
+.title {
+    display: flex;
+    margin-top: 100px;
+    font-weight: normal;
+    font-size: 40px;
+    justify-content: center;
+    align-self: center;
+}
+
+.subtitle {
+    display: flex;
+    margin-top: 20px;
+    font-weight:200;
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    padding: 100px;
+}
+
+.buttonForm {
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+    align-self: center;
+    
+}

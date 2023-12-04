@@ -17,7 +17,7 @@ export const AuthContextProvider = ({ iniciallyLogged, children }) => {
     const AuthValues = {
         isLogged,
         onLogin: handleLogin,
-        onlogout: handleLogout,
+        onLogout: handleLogout,
         rememberMe,
         rememberMeOn: handleRememberMeOn,
         rememberMeOff: handleRememberMeOff

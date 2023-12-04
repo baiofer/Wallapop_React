@@ -17,6 +17,7 @@
     padding: 0 30px;
     text-decoration: none;
     transition: background-color 0.2s;
+    font-size: 1.4rem;
 }
 
 .button.primary {
