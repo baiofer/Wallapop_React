@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { login, logout } from "./service"
-import { useAuth } from "./context"
+import { login, logout } from "../service"
+import { useAuth } from "../context"
 
 
 function LoginPage() {

@@ -1,0 +1,28 @@
+.header {
+    align-items: center;
+    display: flex;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: black;
+}
+
+.icon {
+    align-items: center;
+    background-color: transparent;
+    border-radius: 9999px;
+    color: rgba(29, 161, 242, 1);
+    display: inline-flex;
+    height: 100px;
+    justify-content: center;
+    transition: background-color 0.2s;
+    width: 200px;
+    display: inline;
+    margin-top: 10px;
+}
+.login {
+    align-items: flex-end;
+}
+
+.add {
+ align-content: flex-start;
+}

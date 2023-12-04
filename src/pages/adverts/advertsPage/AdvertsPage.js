@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import { getAdverts } from "./service"
+import { getAdverts } from "../service"
+import Header from "../../../components/layout/Header"
 
 
 function AdvertsPage() {
@@ -17,6 +18,7 @@ function AdvertsPage() {
 
     return (
         <div>
+            <Header />
             Listado de anuncios
             { console.log(adverts) }
         </div>
