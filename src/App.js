@@ -10,8 +10,8 @@ function App() {
   return (
     <Routes>
       {/*  Auth  */}
-      <Route path="/auth" element={ <AuthPage /> }/>
-      <Route path="/auth/login"  element={ <LoginPage />} />
+      <Route path="/auth" replace element={ <AuthPage /> }/>
+      <Route path="/auth/login" replace element={ <LoginPage />} />
       <Route path="/auth/register" element={ <RegisterPage /> } />
       {/*  Adverts  */}
       <Route path="/adverts" element={ <AdvertsPage /> } />

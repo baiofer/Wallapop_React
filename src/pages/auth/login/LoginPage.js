@@ -27,7 +27,6 @@ function LoginPage() {
             await login(credentials, rememberMe)
             setIsFetching(false)
             onLogin()
-            console.log('CORRECTO')
             const to = location?.state?.from.pathname || '/'
             navigate(to, { replace: true })
         } catch (error) {
@@ -85,9 +84,9 @@ function LoginPage() {
                         type="submit" 
                         variant="primary" 
                         width={500}
-                        height={50}
+                        height={60}
                         disabled={ buttonDisabled }>
-                            {isFetching ? "Connecting ..." : "Log in"}
+                            {isFetching ? "Connecting ..." : "Iniciar sesión"}
                     </Button>
                 </div>
                 <div className="loginForm-checkbox">
@@ -101,14 +100,13 @@ function LoginPage() {
                     <label form='remember'>Recordar</label>
                 </div>
                 
-                 
                 { error &&  <div className="loginPage-errorContainer">
                                 <div 
                                     className="loginPage-error" 
                                     onClick={resetError}
                                 >{ error.message }</div>
-                            </div>}
-                                  
+                            </div>
+                }                  
             </form>
         </div>
     )

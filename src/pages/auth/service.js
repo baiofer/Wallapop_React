@@ -1,6 +1,5 @@
 import client, { removeAuthorizationHeader, setAuthorizationHeader } from "../../api/client"
 import storage from "../../utils/storage"
-import { useAuth } from "./context"
 
 export const login = (credentials, remember) => {
     return client
@@ -24,4 +23,12 @@ export const logout = () => {
         removeAuthorizationHeader()
         storage.remove('auth')
     })
+}
+
+export const register = (credentials) => {
+    return client
+        .post('/auth/signup', credentials)
+        .then( response => {
+            console.log(response)
+        })
 }
