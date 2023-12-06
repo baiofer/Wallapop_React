@@ -1,28 +1,47 @@
 .newAdvert-container {
+    align-items: center;
+}
 
+.newAdvert-title {
+    display: flex;
+    margin-top: 50px;
+    font-weight: normal;
+    font-size: 40px;
+    justify-content: center;
 }
 
 .newAdvert-name {
-    
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .newAdvert-sale {
-    
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .newAdvert-price {
-    
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .newAdvert-tags {
-    
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .newAdvert-photo {
-    
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .newAdvert-button {
-    
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
-

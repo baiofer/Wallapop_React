@@ -1,30 +1,84 @@
+import { useState } from "react"
 import Button from "../../../components/shared/Button"
 import FormField from "../../../components/shared/FormField"
 import FormFile from "../../../components/shared/FormFile"
 import FormSelect from "../../../components/shared/FormSelect"
 
+import './NewAdvertPage.css'
+import TagSelector from "../../../components/shared/TagSelector"
+import PhotoSelector from "../../../components/shared/PhotoSelector"
+
 function NewAdvertPage() {
+
+    const [product, setProduct] = useState({productName: '', productPrice: 0})
+    const [selectedSale, setSelectedSale] = useState("")
+
+    const [isFetching, setIsFetching] = useState(false)
+    const [error, setError] = useState(null)
+
+    const handleChange = event => {
+        setProduct( currentProduct => ({
+            ...currentProduct,
+            [event.target.name]: event.target.value
+        }))
+    }
+
+    const handleSale = (event) => {
+        console.log(event.target.value)
+        setSelectedSale(event.target.value)
+    }
+
+    const handleSubmit = () => {
+        console.log('submit')
+    }
+
+    const { productName, productPrice } = product
+    const buttonDisabled = !(productName && productPrice) || isFetching
+    
     return (
         <div className="newAdvert-container">
-            <h2>¿Que subiras?</h2>
-            <form>
+            <h1 className="newAdvert-title">¿Que subiras?</h1>
+            <form onSubmit={ handleSubmit }>
                 <div className="newAdvert-name">
-                    <FormField />
+                    <FormField
+                        type="text" 
+                        name="productName"
+                        label="Producto a subir"
+                        onChange={ handleChange }
+                        value={ product.productName }
+                    />
                 </div>
                 <div className="newAdvert-sale">
-                    <FormSelect />
+                    <FormSelect 
+                        onChange={handleSale}
+                    />
                 </div>
                 <div className="newAdvert-price">
-                    <FormField />
+                    <FormField 
+                        type="text" 
+                        name="productPrice"
+                        label="Precio (se razonable)"
+                        onChange={ handleChange }
+                        value={ product.productName }
+                    />
                 </div>
                 <div className="newAdvert-tags">
-                    <FormSelect />
+                    <TagSelector />
                 </div>
                 <div className="newAdvert-photo">
-                    <FormFile />
+                    <PhotoSelector />
                 </div>
                 <div className="newAdvert-button">
-                    <Button />
+                    <Button 
+                        type="submit" 
+                        variant="primary" 
+                        width={500}
+                        height={60}
+                        disabled={ buttonDisabled }
+                    >
+                        {isFetching ? "Subiendo producto ..." : "Subir producto"}
+                    </Button>
+                            
                 </div>
             </form>
         </div>

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { ReactComponent as Icon } from "../../assets/wallapop_name.svg"
 import AuthButton from "../../pages/auth/components/AuthButton.js"
 import Button from "../shared/Button.js"
@@ -7,8 +7,10 @@ import './Header.css'
 
 function Header() {
 
+    const navigate = useNavigate()
+
     const handleClick = () => {
-        console.log('CLICK')
+        navigate('./adverts/new')
     }
 
     return (
