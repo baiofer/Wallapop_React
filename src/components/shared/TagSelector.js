@@ -1,11 +1,19 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import './TagSelector.css'
+import { getTags } from '../../pages/adverts/service';
 
 function TagSelector() {
   const [selectedTags, setSelectedTags] = useState([]);
+  const [predefinedTags, setPredefinedTags] = useState([])
 
-  const predefinedTags = ['JavaScript', 'React', 'CSS', 'HTML', 'Node.js'];
+  useEffect(() => {
+    const fetchTags = async () => {
+      const tags = await getTags()
+      setPredefinedTags(tags)
+    }
+    fetchTags()
+}, [])
 
   const handleTagClick = (tag) => {
     if (selectedTags.includes(tag)) {
@@ -21,6 +29,7 @@ function TagSelector() {
       <div className='tagSelector-selections'>
         {predefinedTags.map((tag, index) => (
           <label className='tagSelector-label'>
+            { console.log(tag, index) }
             <input
               type='checkbox'
               key={index}

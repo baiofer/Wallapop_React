@@ -17,8 +17,6 @@ function PhotoSelector() {
     }
   };
 
-  console.log(selectedImage)
-
   return (
     <div className='photoSelector-container'>
         <div className='photoSelector-containerSelector'>

@@ -1,12 +1,11 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Button from "../../../components/shared/Button"
 import FormField from "../../../components/shared/FormField"
-import FormFile from "../../../components/shared/FormFile"
 import FormSelect from "../../../components/shared/FormSelect"
-
 import './NewAdvertPage.css'
 import TagSelector from "../../../components/shared/TagSelector"
 import PhotoSelector from "../../../components/shared/PhotoSelector"
+import { createAdvert } from "../service"
 
 function NewAdvertPage() {
 
@@ -15,6 +14,8 @@ function NewAdvertPage() {
 
     const [isFetching, setIsFetching] = useState(false)
     const [error, setError] = useState(null)
+
+    
 
     const handleChange = event => {
         setProduct( currentProduct => ({
@@ -28,8 +29,22 @@ function NewAdvertPage() {
         setSelectedSale(event.target.value)
     }
 
-    const handleSubmit = () => {
-        console.log('submit')
+    const handleSubmit = async () => {
+        console.log('Crear')
+        const advert = {
+            name: product.productName,
+            sale: selectedSale,
+            price: product.productPrice,
+            tags: '',
+            photo: '',
+            type: ''
+        }
+        try {
+            const advertCreated = await createAdvert(advert)
+            console.log('Advert created: ', advertCreated)
+        } catch (error) {
+            console.log('Error: ', error)
+        }
     }
 
     const { productName, productPrice } = product
@@ -55,11 +70,11 @@ function NewAdvertPage() {
                 </div>
                 <div className="newAdvert-price">
                     <FormField 
-                        type="text" 
+                        type="number" 
                         name="productPrice"
                         label="Precio (se razonable)"
                         onChange={ handleChange }
-                        value={ product.productName }
+                        value={ product.productPrice }
                     />
                 </div>
                 <div className="newAdvert-tags">
