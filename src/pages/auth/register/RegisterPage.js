@@ -6,6 +6,7 @@ import { login, register } from "../service"
 import './RegisterPage.css'
 import { useAuth } from "../context"
 import { useLocation, useNavigate } from "react-router-dom"
+import AuthHeader from "../components/AuthHeader"
 
 function RegisterPage() {
 
@@ -74,6 +75,7 @@ function RegisterPage() {
 
     return (
         <div className="registerPage-container">
+            <AuthHeader />
             <h1 className="registerPage-title">Únete a Wallapop</h1>
             <form onSubmit={handleSubmit}>
                 <div className="registerPage-formField">

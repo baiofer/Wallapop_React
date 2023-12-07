@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    width: 600px;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+.back {
+    margin-left: 20px;
+}
+
+.close {
+    margin-right: 20px;
+}
+
+img {
+    width: 35px;
+    height: 35px;
+}

@@ -6,6 +6,7 @@ import FormField from "../../../components/shared/FormField"
 import Button from "../../../components/shared/Button"
 
 import './LoginPage.css'
+import AuthHeader from "../components/AuthHeader"
 
 
 function LoginPage() {
@@ -59,6 +60,7 @@ function LoginPage() {
 
     return (
         <div className="loginPage-container">
+            <AuthHeader />
             <h1 className="loginPage-title">¡Te damos la bienvenida!</h1>
             <form onSubmit={ handleSubmit }>
                 <div className="loginPage-formField">
