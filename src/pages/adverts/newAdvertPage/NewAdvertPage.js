@@ -6,6 +6,7 @@ import './NewAdvertPage.css'
 import TagSelector from "../../../components/shared/TagSelector"
 import PhotoSelector from "../../../components/shared/PhotoSelector"
 import { createAdvert } from "../service"
+import { useAdvert } from "../context"
 
 function NewAdvertPage() {
 
@@ -15,7 +16,10 @@ function NewAdvertPage() {
     const [isFetching, setIsFetching] = useState(false)
     const [error, setError] = useState(null)
 
-    
+    const { tagsSelected } = useAdvert()
+    const { photoSelected } = useAdvert()
+
+    console.log(photoSelected)
 
     const handleChange = event => {
         setProduct( currentProduct => ({
@@ -25,22 +29,35 @@ function NewAdvertPage() {
     }
 
     const handleSale = (event) => {
-        console.log(event.target.value)
         setSelectedSale(event.target.value)
     }
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (event) => {
+        event.preventDefault()
         console.log('Crear')
+        /*
         const advert = {
             name: product.productName,
             sale: selectedSale,
             price: product.productPrice,
-            tags: '',
-            photo: '',
-            type: ''
+            tags: tagsSelected,
         }
+        if (photoSelected) {
+            console.log(photoSelected)
+            advert.photo = photoSelected
+        }
+        */
+        const formData = new FormData()
+        formData.append('name', product.productName)
+        formData.append('sale', selectedSale)
+        formData.append('price', product.productPrice)
+        formData.append('tags', tagsSelected)
+        if (photoSelected) {
+            formData.append('photo', photoSelected)
+        }
+
         try {
-            const advertCreated = await createAdvert(advert)
+            const advertCreated = await createAdvert(formData)
             console.log('Advert created: ', advertCreated)
         } catch (error) {
             console.log('Error: ', error)
@@ -48,8 +65,8 @@ function NewAdvertPage() {
     }
 
     const { productName, productPrice } = product
-    const buttonDisabled = !(productName && productPrice) || isFetching
-    
+    const buttonDisabled = !(productName && productPrice && tagsSelected && selectedSale) || isFetching
+ 
     return (
         <div className="newAdvert-container">
             <h1 className="newAdvert-title">¿Que subiras?</h1>

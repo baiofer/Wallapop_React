@@ -1,19 +1,23 @@
 import { useState } from 'react';
 
 import './PhotoSelector.css'
+import { useAdvert } from '../../pages/adverts/context';
 
 function PhotoSelector() {
   const [selectedImage, setSelectedImage] = useState(null);
 
+  const { setPhotoSelected } = useAdvert()
+
   const handleImageChange = (event) => {
     const file = event.target.files[0];
+    setPhotoSelected(file)
 
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
         setSelectedImage(reader.result);
       };
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(file)
     }
   };
 
