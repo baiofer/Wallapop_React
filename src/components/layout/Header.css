@@ -1,6 +1,9 @@
 .header {
-    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
     display: flex;
+    justify-content: space-around;
+    align-items: center;
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-bottom-color: black;
@@ -25,4 +28,5 @@
 
 .add {
  align-content: flex-start;
+ margin-right: 30px;
 }
