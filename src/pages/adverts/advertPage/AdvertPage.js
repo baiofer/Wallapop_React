@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import { getAdvert } from "../service"
 import noImage from '../../../assets/noImage.png'
+import backIcon from '../../../assets/back.png'
 
 import './AdvertPage.css'
 import Button from "../../../components/shared/Button"
@@ -46,7 +47,8 @@ function AdvertPage() {
         console.log('DELETE')
     }
 
-    const tags = advert.tags
+    let tags = []
+    if (advert.tags) tags = advert.tags
 
     return (
         <div className="advertPage-container">
@@ -61,6 +63,11 @@ function AdvertPage() {
                             <img src={ noImage } alt="advert" style={{ width: '700px', height: '700px', borderRadius: '30px' }}/>
                         </div>
                 }
+                <Link to="#" onClick={() => window.history.back()}>
+                    <div className="advertPage-back">
+                        <img src={ backIcon } alt='back icon' />
+                    </div>
+                </Link>
             </div>
             <div className="advertPage-tagsContainer">
                 {
