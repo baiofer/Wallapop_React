@@ -2,10 +2,13 @@ import { useEffect, useState } from 'react';
 
 import './TagSelector.css'
 import { getTags } from '../../pages/adverts/service';
+import { useAdvert } from '../../pages/adverts/context';
 
 function TagSelector() {
   const [selectedTags, setSelectedTags] = useState([]);
   const [predefinedTags, setPredefinedTags] = useState([])
+
+  const { setTagsSelected } = useAdvert()
 
   useEffect(() => {
     const fetchTags = async () => {
@@ -19,8 +22,10 @@ function TagSelector() {
     if (selectedTags.includes(tag)) {
       const updatedTags = selectedTags.filter((selectedTag) => selectedTag !== tag);
       setSelectedTags(updatedTags);
+      setTagsSelected(updatedTags)
     } else  {
       setSelectedTags([...selectedTags, tag]);
+      setTagsSelected([...selectedTags, tag])
     }
   };
 
@@ -29,7 +34,6 @@ function TagSelector() {
       <div className='tagSelector-selections'>
         {predefinedTags.map((tag, index) => (
           <label className='tagSelector-label'>
-            { console.log(tag, index) }
             <input
               type='checkbox'
               key={index}
