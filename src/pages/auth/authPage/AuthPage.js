@@ -45,11 +45,7 @@ function AuthPage() {
                     onClick={ handleLogin }
                 >¿Ya registrado? Inicia sesión</Button>
             </div>
-            
-            
         </div>
-        
-        
     )
 }
 
