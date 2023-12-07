@@ -7,6 +7,8 @@ import TagSelector from "../../../components/shared/TagSelector"
 import PhotoSelector from "../../../components/shared/PhotoSelector"
 import { createAdvert } from "../service"
 import { useAdvert } from "../context"
+import { Link, useNavigate } from "react-router-dom"
+import backIcon from '../../../assets/back.png'
 
 function NewAdvertPage() {
 
@@ -16,10 +18,8 @@ function NewAdvertPage() {
     const [isFetching, setIsFetching] = useState(false)
     const [error, setError] = useState(null)
 
-    const { tagsSelected } = useAdvert()
-    const { photoSelected } = useAdvert()
-
-    console.log(photoSelected)
+    const navigate = useNavigate()
+    const { tagsSelected, photoSelected } = useAdvert()
 
     const handleChange = event => {
         setProduct( currentProduct => ({
@@ -34,19 +34,6 @@ function NewAdvertPage() {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-        console.log('Crear')
-        /*
-        const advert = {
-            name: product.productName,
-            sale: selectedSale,
-            price: product.productPrice,
-            tags: tagsSelected,
-        }
-        if (photoSelected) {
-            console.log(photoSelected)
-            advert.photo = photoSelected
-        }
-        */
         const formData = new FormData()
         formData.append('name', product.productName)
         formData.append('sale', selectedSale)
@@ -57,11 +44,18 @@ function NewAdvertPage() {
         }
 
         try {
+            setIsFetching(true)
             const advertCreated = await createAdvert(formData)
-            console.log('Advert created: ', advertCreated)
+            setIsFetching(false)
+            navigate(`/adverts/${advertCreated.id}`)
         } catch (error) {
-            console.log('Error: ', error)
+            setIsFetching(false)
+            setError(error)
         }
+    }
+
+    const resetError = () => {
+        setError(null)
     }
 
     const { productName, productPrice } = product
@@ -69,6 +63,11 @@ function NewAdvertPage() {
  
     return (
         <div className="newAdvert-container">
+            <Link to="#" onClick={() => window.history.back()}>
+                <div className="newAdvertPage-back">
+                    <img src={ backIcon } alt='back icon' />
+                </div>
+            </Link>
             <h1 className="newAdvert-title">¿Que subiras?</h1>
             <form onSubmit={ handleSubmit }>
                 <div className="newAdvert-name">
@@ -109,9 +108,16 @@ function NewAdvertPage() {
                         disabled={ buttonDisabled }
                     >
                         {isFetching ? "Subiendo producto ..." : "Subir producto"}
-                    </Button>
-                            
+                    </Button>      
                 </div>
+                { error && 
+                    <div className="loginPage-errorContainer">
+                        <div 
+                            className="loginPage-error" 
+                            onClick={resetError}
+                        >{ error.message }</div>
+                    </div>
+                } 
             </form>
         </div>
         

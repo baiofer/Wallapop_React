@@ -1,5 +1,14 @@
 .newAdvert-container {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
     align-items: center;
+}
+
+.newAdvertPage-back {
+    position: absolute;
+    top: 1%;
+    left: 7%;
 }
 
 .newAdvert-title {

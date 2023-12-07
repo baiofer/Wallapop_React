@@ -24,7 +24,6 @@ function AdvertsPage() {
             } catch (error) {
                 setIsFetching(false)
                 setError(error)
-                console.log(error.message)
                 if (error.message === 'Unauthorized') {
                     navigate("/auth")
                 } 

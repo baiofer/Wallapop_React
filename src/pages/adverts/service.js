@@ -20,6 +20,10 @@ export const getTags = () => {
 
 export const createAdvert = advert => {
     const url = advertsUrl
-    console.log('Create: ', advert)
     return client.post(url, advert)
+}
+
+export const deleteAdvert = advertId => {
+    const url = `${advertsUrl}/${advertId}`
+    return client.delete(url)
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
-import { getAdvert } from "../service"
+import { deleteAdvert, getAdvert } from "../service"
 import noImage from '../../../assets/noImage.png'
 import backIcon from '../../../assets/back.png'
 
@@ -10,7 +10,9 @@ import Button from "../../../components/shared/Button"
 function AdvertPage() {
 
     const [advert, setAdvert] = useState({})
+    const [isFetching, setIsFetching] = useState(false)
     const [error, setError] = useState(null)
+    const [buyed, setBuyed] = useState(false)
 
     const params = useParams()
     const navigate = useNavigate()
@@ -20,10 +22,8 @@ function AdvertPage() {
             try {
                 const advert = await getAdvert(params.advertId) 
                 setAdvert(advert)
-                console.log(advert)
             } catch (error) {
                 setError(error)
-                console.log(error)
                 if (error.message === 'Unauthorized') {
                     navigate("/auth")
                 }
@@ -39,16 +39,32 @@ function AdvertPage() {
         setError(null)        
     }
 
-    const handleBuy = () => {
-        console.log('BUY')
+    const resetBuyed = () => {
+        setBuyed(false)
+        // Borrar el artículo?
+        navigate('/adverts')        
     }
 
-    const handleDelete = () => {
-        console.log('DELETE')
+    const handleBuy = () => {
+        setBuyed(true)
+    }
+
+    const handleDelete = async () => {
+        try {
+            setIsFetching(true)
+            await deleteAdvert(advert.id)
+            setIsFetching(false)
+            navigate('/adverts')
+        } catch (error) {
+            setIsFetching(false)
+            setError(error)
+        }
     }
 
     let tags = []
     if (advert.tags) tags = advert.tags
+
+    const deleteButtonDisabled = isFetching
 
     return (
         <div className="advertPage-container">
@@ -85,13 +101,22 @@ function AdvertPage() {
                 <p className="advertPage-nameText">{ advert.name }</p>
             </div>
             <div className="advertPage-buttonsContainer">
-                <Button height={50} onClick={handleBuy}>Comprar</Button>
-                <Button height={50} onClick={handleDelete}>Eliminar</Button>
+                <Button 
+                    height={50} 
+                    onClick={handleBuy}
+                >Comprar</Button>
+                <Button 
+                    height={50} 
+                    onClick={handleDelete} 
+                    disabled={ deleteButtonDisabled }
+                    >{  isFetching ? "Eliminando ..." : "Eliminar"  }</Button>
             </div>
-            { error && <div onClick={resetError}>{ error.message }</div>}
+            { error && <div onClick={ resetError }>{ error.message }</div>}
+            { buyed && <div onClick={ resetBuyed }>Artículo comprado. Pulse para continuar</div>}
         </div>
-        
     )
 }
 
 export default AdvertPage
+
+

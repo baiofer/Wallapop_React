@@ -11,7 +11,6 @@ function AuthPage() {
     const navigate = useNavigate()
 
     if (isLogged) {
-        console.log("estoy logueado!!")
         navigate('/adverts')
     }
 
