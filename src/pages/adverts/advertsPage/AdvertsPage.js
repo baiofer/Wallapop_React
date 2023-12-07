@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
 import { getAdverts } from "../service"
 import Header from "../../../components/layout/Header"
-import { Navigate, useNavigate, useNavigation } from "react-router-dom"
+import { Link, Navigate, useNavigate, useNavigation } from "react-router-dom"
+import './AdvertsPage.css'
+import Advert from "../components/Advert"
 
 
 function AdvertsPage() {
@@ -43,8 +45,15 @@ function AdvertsPage() {
     return (
         <div>
             <Header />
-            Listado de anuncios
-            { console.log("Anuncios: ", adverts) }
+            {
+                adverts.map( advert => {
+                    return(
+                        <Link to={`/adverts/${advert.id}`} className="advertsPage-link">
+                            <Advert advert={advert} />
+                        </Link>
+                    )
+                })
+            }
             { error && <div onClick={resetError}>{ error.message }</div>}
         </div>
     )
