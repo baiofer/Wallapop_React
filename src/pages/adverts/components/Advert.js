@@ -11,7 +11,6 @@ function Advert({advert}) {
                             <img src={ advert.photo } alt="advert" style={{ width: '280px', height: '320px', borderRadius: '30px' }}/>
                             <div className='text-tags'>{ advert.tags }</div>
                         </div>
-                        
                         :
                         <div className='advert-image-container'>
                             <img src={ noImage } alt="advert" style={{ width: '280px', height: '320px', borderRadius: '30px' }}/>

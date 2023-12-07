@@ -31,7 +31,7 @@ function AdvertsPage() {
             }
         }
         fetchAdverts()
-    }, [])
+    }, [navigate])
 
     const resetError = () => {
         setError(null)        

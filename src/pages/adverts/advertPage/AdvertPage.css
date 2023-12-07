@@ -1,0 +1,55 @@
+.advertPage-container {
+    display: block;
+    justify-content: center;
+    
+    background-color: cornsilk;
+    width: 700px;
+    height: 1150px;
+}
+
+.advertPage-imageContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.advertPage-priceContainer {
+    margin-left: 30px;
+}
+
+.advertPage-priceText {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.advertPage-nameContainer {
+    margin-left: 30px;
+}
+
+.advertPage-nameText {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.advertPage-buttonsContainer {
+    display: flex;
+    justify-content:space-around;
+    padding-top: 30px;
+}
+
+.advertPage-tagsContainer {
+    display: flex;
+    justify-content:space-around;
+    margin-top: 30px;
+}
+
+.advertPage-tag {
+    border-radius: 9999px;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 1.5rem;
+    background-color: lightgrey;
+}

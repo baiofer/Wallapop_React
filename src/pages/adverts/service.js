@@ -10,6 +10,7 @@ export const getAdverts = () => {
 
 export const getAdvert = advertId => {
     const url = `${advertsUrl}/${advertId}`
+    return client.get(url)
 }
 
 export const getTags = () => {
