@@ -42,7 +42,6 @@ function RegisterPage() {
             password: credentials.password
         }
         try {
-            console.log(loginCredentials)
             setIsFetching(true)
             await login(loginCredentials)
             setIsFetching(false)
