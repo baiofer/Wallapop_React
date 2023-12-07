@@ -12,6 +12,7 @@ client.interceptors.response.use(
             // 400 / 500 fserver error
             return Promise.reject({
                 message: error.response.statusText,
+                ...error.response,
                 ...error.response.data
             })
         }

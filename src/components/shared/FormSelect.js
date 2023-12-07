@@ -1,6 +1,6 @@
 import './FormSelect.css'
 
-function FormSelect({label, ...props}) {
+function FormSelect({...props}) {
 
     return (
         <div className='formSelect-container'>
