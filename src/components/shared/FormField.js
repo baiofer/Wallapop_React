@@ -18,11 +18,11 @@ const FormField = ({autofocus, label, ...props}) => {
     return(
         <div className='formField'>
             <label className='formField-label'>
-                <div>{ isFocused ? label : '' }</div>
+                <div>{ label  }</div>
                 <input 
                     className='formField-input'
                     ref={inputRef}
-                    placeholder={ isFocused ? '' : label } 
+                    
                     autoComplete='off' 
                     onFocus={handleFocus}
                     onBlur={handleBlur}

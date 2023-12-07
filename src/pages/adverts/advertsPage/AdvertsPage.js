@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { getAdverts } from "../service"
 import Header from "../../../components/layout/Header"
-import { Link, Navigate, useNavigate, useNavigation } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import './AdvertsPage.css'
 import Advert from "../components/Advert"
 
@@ -29,7 +29,6 @@ function AdvertsPage() {
                     navigate("/auth")
                 } 
             }
-            
         }
         fetchAdverts()
     }, [])
@@ -45,16 +44,18 @@ function AdvertsPage() {
     return (
         <div>
             <Header />
-            {
-                adverts.map( advert => {
-                    return(
-                        <Link to={`/adverts/${advert.id}`} className="advertsPage-link">
-                            <Advert advert={advert} />
-                        </Link>
-                    )
-                })
-            }
-            { error && <div onClick={resetError}>{ error.message }</div>}
+            <div className="adverts-container">
+                {
+                    adverts.map( advert => {
+                        return(
+                            <Link to={`/adverts/${advert.id}`} className="advertsPage-link">
+                                <Advert advert={advert} />
+                            </Link>
+                        )
+                    })
+                }
+                { error && <div onClick={resetError}>{ error.message }</div>}
+            </div>
         </div>
     )
 

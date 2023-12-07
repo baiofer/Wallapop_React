@@ -1,3 +1,54 @@
-.advert-p {
+.advert-container {
+    width: 280px;
+    height: 450px;
     text-decoration: none;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: grey;
+    border-width: 1px;
+    background-color:#f9ffff;
+}
+
+.advert-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 280px;
+    height: 320px;
+    border-radius: 30px;
+    margin-top: 2px;
+}
+
+.advert-image-container {
+    position: relative;
+}
+
+.text-tags {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: white;
+    padding: 5px;border-radius: 9999px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.advert-price {
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: black;
+}
+
+.advert-name {
+    margin-left: 20px;
+    margin-left: 20px;
+    font-weight: normal;
+    font-size: 1.2rem;
+    color: black;
 }
