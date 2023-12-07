@@ -1,5 +1,6 @@
 .registerPage-container {
-    width: 600px;
+    max-width: 600px;
+    margin: 0 auto;
     height: 855px;
     display: block;
     align-items: center;
