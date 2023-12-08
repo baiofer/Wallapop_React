@@ -42,7 +42,7 @@ function AdvertPage() {
     const resetBuyed = () => {
         setBuyed(false)
         // Borrar el artículo?
-        navigate('/adverts')        
+        handleDelete()        
     }
 
     const handleBuy = () => {
@@ -111,8 +111,22 @@ function AdvertPage() {
                     disabled={ deleteButtonDisabled }
                     >{  isFetching ? "Eliminando ..." : "Eliminar"  }</Button>
             </div>
-            { error && <div onClick={ resetError }>{ error.message }</div>}
-            { buyed && <div onClick={ resetBuyed }>Artículo comprado. Pulse para continuar</div>}
+            { error && <div 
+                            className="advertPage-errorContainer">
+                            <div 
+                                className="loginPage-error" 
+                                onClick={resetError}
+                            >{ error.message }</div>
+                         </div>
+                }
+            { buyed && <div 
+                            className="advertPage-errorContainer">
+                            <div 
+                                className="loginPage-error buyed" 
+                                onClick={resetBuyed}
+                            >Artículo comprado, se eliminará de la lista. Pulse para continuar</div>
+                        </div>
+                }
         </div>
     )
 }
