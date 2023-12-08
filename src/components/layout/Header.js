@@ -10,7 +10,7 @@ function Header() {
     const navigate = useNavigate()
 
     const handleClick = () => {
-        navigate('./adverts/new')
+        navigate('new')
     }
 
     return (

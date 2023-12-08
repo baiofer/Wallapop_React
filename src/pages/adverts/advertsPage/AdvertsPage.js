@@ -42,7 +42,6 @@ function AdvertsPage() {
     
     return (
         <div>
-            <Header />
             <div className="adverts-container">
                 {
                     adverts.map( advert => {
