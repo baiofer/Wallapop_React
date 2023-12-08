@@ -87,9 +87,9 @@ function AdvertPage() {
             </div>
             <div className="advertPage-tagsContainer">
                 {
-                    tags.map((tag) => {
+                    tags.map((tag, index) => {
                         return (
-                            <span className="advertPage-tag">{ tag }</span>
+                            <span className="advertPage-tag" key={ index }>{ tag }</span>
                         )
                     })
                 }

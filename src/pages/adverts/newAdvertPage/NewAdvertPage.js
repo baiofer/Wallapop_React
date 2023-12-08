@@ -9,12 +9,13 @@ import { createAdvert } from "../service"
 import { useAdvert } from "../context"
 import { Link, useNavigate } from "react-router-dom"
 import backIcon from '../../../assets/back.png'
+import { me } from "../../auth/service"
+import storage from "../../../utils/storage"
 
 function NewAdvertPage() {
 
     const [product, setProduct] = useState({productName: '', productPrice: 0})
     const [selectedSale, setSelectedSale] = useState("")
-
     const [isFetching, setIsFetching] = useState(false)
     const [error, setError] = useState(null)
 
@@ -63,7 +64,7 @@ function NewAdvertPage() {
  
     return (
         <div className="newAdvert-container">
-            <Link to="#" onClick={() => window.history.back()}>
+            <Link to='/adverts'>
                 <div className="newAdvertPage-back">
                     <img src={ backIcon } alt='back icon' />
                 </div>

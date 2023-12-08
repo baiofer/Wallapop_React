@@ -33,10 +33,9 @@ function TagSelector() {
     <div className='tagSelector-container'>
       <div className='tagSelector-selections'>
         {predefinedTags.map((tag, index) => (
-          <label className='tagSelector-label'>
+          <label className='tagSelector-label' key={index}>
             <input
               type='checkbox'
-              key={index}
               placeholder={tag}
               value={tag}
               className={selectedTags.includes(tag) ? 'tag selected' : 'tag'}
