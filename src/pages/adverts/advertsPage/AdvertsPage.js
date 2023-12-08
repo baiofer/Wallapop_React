@@ -47,7 +47,7 @@ function AdvertsPage() {
                 {
                     adverts.map( advert => {
                         return(
-                            <Link to={`/adverts/${advert.id}`} className="advertsPage-link">
+                            <Link key={ advert.id } to={`/adverts/${advert.id}`} className="advertsPage-link">
                                 <Advert advert={advert} />
                             </Link>
                         )
