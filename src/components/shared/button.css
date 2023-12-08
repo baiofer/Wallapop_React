@@ -10,14 +10,14 @@
     align-items: center;
     font: inherit;
     font-weight: bold;
-    min-height: 36px;
+    min-height: 50px;
     justify-content: center;
     min-width: 72px;
     outline-style: none;
     padding: 0 30px;
     text-decoration: none;
     transition: background-color 0.2s;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 }
 
 .button.primary {

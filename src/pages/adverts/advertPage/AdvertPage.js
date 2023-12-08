@@ -72,14 +72,14 @@ function AdvertPage() {
                 { 
                     (advert.photo) ?
                         <div className='advertPage-image-container'>
-                            <img src={ advert.photo } alt="advert" style={{ width: '700px', height: '700px', borderRadius: '30px' }}/>
+                            <img src={ advert.photo } alt="advert" style={{ width: '699px', height: '700px', borderRadius: '30px' }}/>
                         </div>
                         :
                         <div className='advertPage-image-container'>
-                            <img src={ noImage } alt="advert" style={{ width: '700px', height: '700px', borderRadius: '30px' }}/>
+                            <img src={ noImage } alt="advert" style={{ width: '690px', height: '690px', borderRadius: '30px' }}/>
                         </div>
                 }
-                <Link to="#" onClick={() => window.history.back()}>
+                <Link to="/adverts">
                     <div className="advertPage-back">
                         <img src={ backIcon } alt='back icon' />
                     </div>
