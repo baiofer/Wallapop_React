@@ -1,7 +1,8 @@
 .header {
-    max-width: 100%;
-    margin: 0 auto;
     display: flex;
+    margin: 0 auto;
+    max-width: 100%;
+    height: 100px;
     justify-content: space-around;
     align-items: center;
     border-bottom-style: solid;
@@ -9,7 +10,7 @@
     border-bottom-color: black;
 }
 
-.icon {
+.header-icon {
     align-items: center;
     background-color: transparent;
     border-radius: 9999px;
@@ -21,12 +22,21 @@
     width: 200px;
     display: inline;
     margin-top: 10px;
-}
-.login {
-    align-items: flex-end;
+    margin-left: 20px;
+    margin-right: 10px;
 }
 
-.add {
- align-content: flex-start;
- margin-right: 30px;
+.header-search {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.header-login {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.header-add {
+    margin-left: 10px;
+    margin-right: 20px;
 }

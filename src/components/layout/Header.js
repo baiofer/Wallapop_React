@@ -16,17 +16,19 @@ function Header() {
     return (
         <header className="header">
             <Link to="/">
-                <div className="icon">
+                <div className="header-icon">
                     <Icon width={ 190 } height={ 40 } />
                 </div>
             </Link>
-            <Search />
-            <div className="login">
+            <div className="header-search">
+                <Search />
+            </div>
+            <div className="header-login">
                 <AuthButton 
                     variant='primary' 
                 >Regístrate o inicia sesión</AuthButton>
             </div>
-            <div className="add">
+            <div className="header-add">
                 <Button 
                     variant='primary' 
                     onClick={handleClick} 

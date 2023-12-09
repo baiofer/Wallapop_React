@@ -22,7 +22,6 @@ const FormField = ({autofocus, label, ...props}) => {
                 <input 
                     className='formField-input'
                     ref={inputRef}
-                    
                     autoComplete='off' 
                     onFocus={handleFocus}
                     onBlur={handleBlur}

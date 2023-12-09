@@ -1,8 +1,41 @@
+import { CiSearch } from 'react-icons/ci'
 import './Search.css'
+import { useState } from 'react'
+import { useAdvert } from '../../pages/adverts/context'
 
-function Search({}) {
+function Search() {
+
+    const [searchText, setSearchText] = useState('')
+
+    const { handleAdvertsSearched } = useAdvert
+
+    const handleSearch = () => {
+        console.log(searchText)
+    }
+
+    const handleChange = (event) => {
+        setSearchText( currentSearchText => ({
+            ...currentSearchText,
+            [event.target.name]: event.target.value
+        }))
+    }
+
     return (
-        <input className="input" placeholder="Busca en todas las categorias"/>
+        <div className='search'>
+            <input 
+                className="search-input" 
+                name='searchText'
+                placeholder="Busca en todas las categorias"
+                onChange={handleChange}
+            />
+            <span 
+                className='search-iconContainer'
+                onClick={handleSearch}
+            >
+                <CiSearch className='search-icon'/>
+            </span>
+        </div>
+        
     )
 }
 

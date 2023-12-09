@@ -75,7 +75,6 @@ function AdvertPage() {
     }
 
     const deleteAd = async () => {
-        console.log('deleting')
         try {
             setIsFetching(true)
             await deleteAdvert(advert.id)
