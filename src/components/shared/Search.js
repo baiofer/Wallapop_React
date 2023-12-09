@@ -7,10 +7,11 @@ function Search() {
 
     const [searchText, setSearchText] = useState('')
 
-    const { handleAdvertsSearched } = useAdvert
+    const { setNameToSearch } = useAdvert()
 
     const handleSearch = () => {
-        console.log(searchText)
+        console.log(searchText.searchText)
+        setNameToSearch(searchText.searchText)
     }
 
     const handleChange = (event) => {

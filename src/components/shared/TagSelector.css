@@ -3,7 +3,7 @@
     height: 200px;
     border-style: solid;
     border-width: 1px;
-    border-color: black;
+    border-color: rgb(19, 195, 174);
     border-radius: 25px;
     align-items: center;
 }
@@ -12,18 +12,20 @@
     display: block;
     margin-left: 20px;
     margin-top: 20px;
+    color: rgb(19, 195, 174);
 }
 
 .tagSelector-label {
     display: block;
     font-size: 1.3rem;
-    
+    color: rgb(19, 195, 174);
 }
 
 .tagSelector-selected {
     font-size: 1.3rem;
     margin-left: 20px;
     margin-top: 20px;
+    color: rgb(19, 195, 174);
 }
 
 .tag {

@@ -1,0 +1,45 @@
+.filters-container {
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0;
+    gap: 15px;
+    align-items: center;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: black;
+    padding-bottom: 20px;
+}
+
+.filters-title {
+    font-size: 1.6rem;
+    font-style: bold;
+    color: rgb(19, 195, 174);
+}
+
+.filters-form {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0;
+    gap: 15px;
+}
+
+.filters-sale {
+    
+}
+
+.filters-price {
+
+}
+
+.filters-button {
+    display: flex;
+    align-items:flex-end;
+}
+
+@media (width >= 1100px) {   
+    .filters-form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

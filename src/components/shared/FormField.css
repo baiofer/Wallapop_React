@@ -4,7 +4,7 @@
     height: 100px;
     border-style: solid;
     border-width: 1px;
-    border-color: black;
+    border-color: rgb(19, 195, 174);
     border-radius: 25px;
     align-items: center;
 }
@@ -13,6 +13,7 @@
     font-size: 1.3rem;
     width: 470px;
     padding-left: 20px;
+    color: rgb(19, 195, 174);
 }
 
 .formField-input {
@@ -21,4 +22,5 @@
     font-size: 1.4rem;
     outline: none;
     border: none;
+    color: rgb(19, 195, 174);
 }

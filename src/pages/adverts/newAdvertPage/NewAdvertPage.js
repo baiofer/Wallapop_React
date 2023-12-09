@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Button from "../../../components/shared/Button"
 import FormField from "../../../components/shared/FormField"
 import FormSelect from "../../../components/shared/FormSelect"
@@ -9,8 +9,6 @@ import { createAdvert } from "../service"
 import { useAdvert } from "../context"
 import { Link, useNavigate } from "react-router-dom"
 import backIcon from '../../../assets/back.png'
-import { me } from "../../auth/service"
-import storage from "../../../utils/storage"
 
 function NewAdvertPage() {
 
