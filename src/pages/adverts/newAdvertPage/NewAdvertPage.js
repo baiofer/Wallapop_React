@@ -33,9 +33,10 @@ function NewAdvertPage() {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
+        const sale = selectedSale === 'sale' ? false : true
         const formData = new FormData()
         formData.append('name', product.productName)
-        formData.append('sale', selectedSale)
+        formData.append('sale', sale)
         formData.append('price', product.productPrice)
         formData.append('tags', tagsSelected)
         if (photoSelected) {

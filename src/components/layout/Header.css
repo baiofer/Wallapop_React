@@ -11,6 +11,7 @@
     border-bottom-color: black;
     padding-top: 20px;
     padding-bottom: 30px;
+    padding-left: 20px;
 }
 
 .header-icon {
@@ -25,13 +26,13 @@
     width: 200px;
     display: inline;
     margin-top: 10px;
-    padding-left: 10px;
+    
     margin-right: 10px;
 }
 
 .header-search {
-    margin-left: 10px;
-    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 40px;
 }
 
 .header-login {

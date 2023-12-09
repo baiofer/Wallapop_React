@@ -3,7 +3,7 @@
     height: 500px;
     border-style: solid;
     border-width: 1px;
-    border-color: black;
+    border-color: rgb(19, 195, 174);
     border-radius: 25px;
     align-items: center;
 }
@@ -26,6 +26,7 @@
     cursor: pointer;
     align-items: center;
     padding-left: 20px;
+    color: rgb(19, 195, 174);
 }
 
 .photoSelector-inputContainer input[type="file"] {
@@ -50,7 +51,7 @@
     height: 150px;
     border-style: solid;
     border-width: 1px;
-    border-color: black;
+    border-color: rgb(19, 195, 174);
     border-radius: 25px;
     align-items: center;
     justify-content: center;

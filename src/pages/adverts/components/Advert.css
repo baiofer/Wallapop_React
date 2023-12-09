@@ -39,6 +39,17 @@
     padding-right: 10px;
 }
 
+.advert-priceContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.advert-sale {
+    padding-right: 20px;
+    font-size: 1.4rem;
+    color: black;
+}
+
 .advert-price {
     margin-left: 20px;
     font-weight: bold;

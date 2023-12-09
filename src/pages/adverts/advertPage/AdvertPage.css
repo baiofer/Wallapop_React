@@ -34,7 +34,14 @@
 }
 
 .advertPage-priceContainer {
+    display: flex;
     margin-left: 30px;
+    justify-content: space-between;
+}
+
+.advertPage-sale {
+    font-size: 3rem;
+    padding-right: 30px;
 }
 
 .advertPage-priceText {

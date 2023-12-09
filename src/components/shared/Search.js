@@ -26,7 +26,7 @@ function Search() {
             <input 
                 className="search-input" 
                 name='searchText'
-                placeholder="Busca en todas las categorias"
+                placeholder="Busca por nombre"
                 onChange={handleChange}
             />
             <span 

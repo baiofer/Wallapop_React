@@ -18,8 +18,11 @@ function Advert({advert}) {
                         </div>
                 }
             </div>
-            <p className='advert-price'>{ advert.price } €</p>
-            <p className='advert-name'>{ advert.name }</p>    
+            <div className='advert-priceContainer'>
+                <p className='advert-price'>{ advert.price } €</p>
+                <p className='advert-sale'>{ advert.sale ? 'Compra' : 'Venta' }</p> 
+            </div> 
+            <p className='advert-name'>{ advert.name }</p>   
         </div>
     )
 }

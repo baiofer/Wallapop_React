@@ -121,15 +121,21 @@ function AdvertPage() {
             </div>
             <div className="advertPage-priceContainer">
                 <p className="advertPage-priceText">{ advert.price } €</p>
+                <p className='advertPage-sale'>{ advert.sale ? 'Compra' : 'Venta' }</p> 
             </div>
             <div className="advertPage-nameContainer">
                 <p className="advertPage-nameText">{ advert.name }</p>
             </div>
             <div className="advertPage-buttonsContainer">
-                <Button 
-                    height={50} 
-                    onClick={handleBuy}
-                >Comprar</Button>
+                {
+                    !advert.sale ?
+                    <Button 
+                        height={50} 
+                        onClick={handleBuy}
+                    >Comprar</Button>
+                    : null
+                }
+                
                 <Button 
                     height={50} 
                     onClick={handleDelete} 
