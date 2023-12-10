@@ -7,15 +7,13 @@ import { useAdvert } from "../../pages/adverts/context"
 
 function Layout() {
 
-    const { nameToSearch } = useAdvert()
-
-    console.log('NameToSearch: ', nameToSearch)
+    const { isFilter } = useAdvert()
 
     return (
         <div className="layout">
             <Header />
             {
-                nameToSearch ? <Filters /> : null
+                isFilter ? <Filters /> : null
             }
             <main className="layout-main bordered">
                 <Outlet />

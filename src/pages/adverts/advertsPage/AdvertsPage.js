@@ -8,7 +8,6 @@ import { useAdvert } from "../context"
 
 function AdvertsPage() {
 
-    //const [adverts, setAdverts] = useState([])
     const [error, setError] = useState(null)
     const [isFetching, setIsFetching] = useState(true)
 
@@ -42,6 +41,7 @@ function AdvertsPage() {
         <div>Loading ...</div>
     )
 
+    if (adverts.length === 0) navigate('new')
     let advertsToShow = adverts
     if (advertsSearched?.length !== 0) advertsToShow = advertsSearched
     

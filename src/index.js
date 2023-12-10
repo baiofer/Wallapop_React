@@ -13,12 +13,14 @@ if (accessToken) {
   setAuthorizationHeader(accessToken)
 }
 
+const isFilter = storage.get('isFilter')
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthContextProvider iniciallyLogged={!!accessToken}>
-        <AdvertContextProvider>
+        <AdvertContextProvider initialIsFilter={isFilter}>
           <App />
         </AdvertContextProvider>
       </AuthContextProvider>

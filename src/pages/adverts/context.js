@@ -1,21 +1,22 @@
 import { createContext, useContext, useState } from 'react'
+import storage from '../../utils/storage'
 
 const AdvertContext = createContext(false)
 
 export const useAdvert = () => useContext(AdvertContext)
 
-export const AdvertContextProvider = ({ children }) => {
+export const AdvertContextProvider = ({ initialIsFilter, children }) => {
     const [tagsSelected, setTagsSelected] = useState('')
     const [photoSelected, setPhotoSelected] = useState('')
     const [advertsSearched, setAdvertsSearched] = useState([])
-    const [nameToSearch, setNameToSearch] = useState('')
+    const [isFilter, setIsFilter] = useState(initialIsFilter)
     const [adverts, setAdverts] = useState([])
 
     const handleTags = (tags) => setTagsSelected(tags)
     const handlePhoto = (photo) => setPhotoSelected(photo) 
     const handleAdvertsSearched = (adverts) => setAdvertsSearched(adverts)
-    const handleNameToSearch = (text) => setNameToSearch(text)
     const handleAdverts = (adverts) => setAdverts(adverts)
+    const handleIsFilter = (value) => setIsFilter(value)
     
     const AdvertValues = {
         tagsSelected, 
@@ -24,10 +25,10 @@ export const AdvertContextProvider = ({ children }) => {
         setPhotoSelected: handlePhoto,
         advertsSearched,
         setAdvertsSearched: handleAdvertsSearched,
-        nameToSearch,
-        setNameToSearch: handleNameToSearch,
         adverts,
         setAdverts: handleAdverts,
+        isFilter,
+        setIsFilter: handleIsFilter,
     }
 
     return (

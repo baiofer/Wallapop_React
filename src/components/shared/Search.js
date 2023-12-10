@@ -1,38 +1,21 @@
 import { CiSearch } from 'react-icons/ci'
 import './Search.css'
-import { useState } from 'react'
 import { useAdvert } from '../../pages/adverts/context'
+import storage from '../../utils/storage'
 
 function Search() {
 
-    const [searchText, setSearchText] = useState('')
-
-    const { setNameToSearch } = useAdvert()
+    const { setIsFilter } = useAdvert()
 
     const handleSearch = () => {
-        console.log(searchText.searchText)
-        setNameToSearch(searchText.searchText)
-    }
-
-    const handleChange = (event) => {
-        setSearchText( currentSearchText => ({
-            ...currentSearchText,
-            [event.target.name]: event.target.value
-        }))
+        setIsFilter(true)
+        storage.set('isFilter', true)
     }
 
     return (
-        <div className='search'>
-            <input 
-                className="search-input" 
-                name='searchText'
-                placeholder="Busca por nombre"
-                onChange={handleChange}
-            />
-            <span 
-                className='search-iconContainer'
-                onClick={handleSearch}
-            >
+        <div className='search' onClick={handleSearch}>
+            <span className='search-label'>Buscar anuncios</span>
+            <span className='search-iconContainer'>
                 <CiSearch className='search-icon'/>
             </span>
         </div>
